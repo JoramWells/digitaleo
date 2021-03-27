@@ -1,6 +1,6 @@
 import React from "react";
-import { Menu, Typography, Row, Col, Button, Card, Image } from "antd";
-
+import { Menu, Typography, Row, Col, Button, Card, Image, Avatar } from "antd";
+import unable from "./unable.jpeg";
 const { Title, Text } = Typography;
 const { Meta } = Card;
 
@@ -8,13 +8,37 @@ export default function App() {
   return (
     <>
       <div style={{ backgroundColor: "teal", paddingBottom: "0" }}>
-        <Menu
-          mode="horizontal"
-          style={{ backgroundColor: "teal", position: "sticky", top: "0px" }}
+        <nav
+          className="menu"
+          style={{
+            backgroundColor: "teal",
+            position: "sticky",
+            top: "0px",
+            zIndex: "1px",
+          }}
         >
-          <Menu.Item>Home</Menu.Item>
-          <Menu.Item>About us</Menu.Item>
-        </Menu>
+          <div className="menu__logo" style={{ paddingTop: "0.5rem" }}>
+            <Avatar src={unable} />
+          </div>
+          <div>
+            <div className="menu__container">
+              <div className="menu__left">
+                <Menu
+                  mode="horizontal"
+                  style={{
+                    backgroundColor: "teal",
+                    zIndex: "1px",
+                    borderBottom: "0",
+                  }}
+                >
+                  <Menu.Item>Home</Menu.Item>
+                  <Menu.Item>About us</Menu.Item>
+                </Menu>
+              </div>
+            </div>
+          </div>
+        </nav>
+
         <Row
           style={{ marginTop: "1rem", height: "200px" }}
           justify="space-around"
