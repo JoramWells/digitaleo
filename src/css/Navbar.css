@@ -1,0 +1,11 @@
+@import "~antd/dist/antd.css";
+
+.curved svg {
+  display: block;
+  padding-top: 0;
+}
+
+.upper svg {
+  background: #fff;
+  display: block;
+}
