@@ -16,6 +16,7 @@ export default function Header() {
             style={{
               textAlign: "center",
               fontFamily: "Stylish",
+              color: "#ff6666",
             }}
           >
             Digital Leo Interactive
@@ -25,6 +26,7 @@ export default function Header() {
             style={{
               textAlign: "center",
               fontFamily: "Montserrat",
+              color: "#007399",
             }}
           >
             digital leo solutions Ltd

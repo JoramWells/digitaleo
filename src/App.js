@@ -1,26 +1,25 @@
 import React from "react";
-import {
-  Menu,
-  Typography,
-  Row,
-  Col,
-  Button,
-  Card,
-  Image,
-  Avatar,
-  Statistic,
-} from "antd";
+import { Typography, Row, Col, Card, Image, Carousel, Statistic } from "antd";
 import { LikeOutlined } from "@ant-design/icons";
 import unable from "./unable.jpeg";
 import me from "./me.JPG";
+import pp from "./pp.jpg";
 
 import "react-multi-carousel/lib/styles.css";
-import Header from "./components/Header";
 import About from "./components/About";
 import Products from "./components/Products";
+import Services from "./components/Services";
+import Navbar from "./components/Navbar";
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
+const contentStyle = {
+  height: "160px",
+  color: "#fff",
+  lineHeight: "160px",
+  textAlign: "center",
+  background: "#364d79",
+};
 const items = [
   {
     src: "https://www.mtpplc.com/wp-content/uploads/apple-devices-800x702.jpg",
@@ -84,43 +83,92 @@ const services = [
     title: "computer repair",
     description: "all devices",
   },
+  {
+    src:
+      "https://images.tmcnet.com/tmc/misc/articles/image/2018-sep/5733277494-server-rack-data-center-small.jpg",
+    title: "networking",
+    description: "LAN WAN networking",
+  },
+  {
+    src:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaPSfn4V1hOXyvbG01WTqLjQmg-HwEMPiWubDyqqhq7_kyMgYKVTRLezZAfSA6BfL6K68&usqp=CAU",
+    title: "CCTV installation",
+    description: "premises",
+  },
 ];
 
 const renderServices = services.map((service) => {
   return (
     <Col key={service.title}>
-      <Card style={{ border: "0" }} cover={<Image src={service.src} />}></Card>
-      <Meta title={service.title} description={service.description} />
+      <Image
+        src={service.src}
+        title={service.title}
+        alt="dsjfhjskf"
+        style={{ width: "200px" }}
+      />
     </Col>
   );
 });
 
-const curvedDivs = () => {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path
-        fill="teal"
-        fill-opacity="1"
-        d="M0,192L60,176C120,160,240,128,360,144C480,160,600,224,720,213.3C840,203,960,117,1080,101.3C1200,85,1320,139,1380,165.3L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
-      ></path>
-    </svg>
-  );
-};
-
 const clients = [
   {
     img: me,
+    msg: "joram's  utility",
+    info: "Best tech solution, experience amazing",
+  },
+  {
+    img: pp,
+    msg: "Nvidia Chrome",
+    info: "Revolutionary , experienced engineers",
+  },
+  {
+    img: unable,
+    msg: "Aga Khan",
+    info: "Ontime software delivery,experience",
   },
 ];
 
+const things = [
+  {
+    img: me,
+  },
+  {
+    img: unable,
+  },
+  {
+    img: pp,
+  },
+];
+
+const renderThings = things.map((thing) => {
+  return (
+    <>
+      <h3 style={contentStyle} key={thing.img}>
+        <img
+          alt="jdsklfhsdjf"
+          style={{ width: "200px", borderRadius: "10px" }}
+          src={thing.img}
+        />
+      </h3>
+    </>
+  );
+});
+
 const renderClients = clients.map((client) => {
   return (
-    <Col key={client.img}>
-      <Image
-        style={{ borderRadius: "500px", width: "200px" }}
-        src={client.img}
-      />
-    </Col>
+    <>
+      <Col key={client.img}>
+        <Image
+          style={{ borderRadius: "500px", width: "200px" }}
+          src={client.img}
+          alt="an image"
+        />
+        <Title level={4} style={{ textAlign: "center" }}>
+          {client.msg}
+        </Title>
+        <Text>{client.info}</Text>
+      </Col>
+    </>
   );
 });
 
@@ -140,93 +188,53 @@ const renderCarousel = items.map((item) => {
 export default function App() {
   return (
     <>
-      <div style={{ backgroundColor: "teal", paddingBottom: "0" }}>
-        <nav
-          className="menu"
-          style={{
-            backgroundColor: "teal",
-            position: "sticky",
-            top: "0px",
-            zIndex: "1px",
-          }}
-        >
-          <div className="menu__logo" style={{ paddingTop: "0.5rem" }}>
-            <Avatar src={unable} />
-          </div>
-          <div>
-            <div className="menu__container">
-              <div className="menu__left">
-                <Menu
-                  mode="horizontal"
-                  style={{
-                    backgroundColor: "teal",
-                    zIndex: "1px",
-                    borderBottom: "0",
-                  }}
-                >
-                  <Menu.Item>Home</Menu.Item>
-                  <Menu.Item>About us</Menu.Item>
-                </Menu>
-              </div>
-            </div>
-          </div>
-        </nav>
-
-        <Header />
-      </div>
+      <Navbar />
 
       <About />
 
-      <div>
-        <Products renderCarousel={renderCarousel} />
+      <Services renderServices={renderServices} />
 
+      <Products renderCarousel={renderCarousel} />
+
+      <div style={{ backgroundColor: "teal", padding: "2rem" }}>
         <Title
           level={2}
           style={{
             textAlign: "center",
-            fontFamily: "Stylish,sans-serif",
             color: "#E75480",
+            fontFamily: "Stylish,sans-serif",
           }}
         >
-          Services
+          Community support
         </Title>
-        <Title level={5} style={{ textAlign: "center" }}>
-          Services that we offer
-        </Title>
-
-        <Row justify="space-around" align="middle" style={{ height: "500px" }}>
-          {renderServices}
-        </Row>
-      </div>
-      <div style={{ backgroundColor: "teal" }}>
-        <div className="upper">
-          {curvedDivs()}
-
-          <Title
-            level={2}
-            style={{
-              textAlign: "center",
-              color: "white",
-              fontFamily: "Stylish,sans-serif",
-            }}
+        <div className="curved" style={{ textAlign: "center" }}>
+          <Row justify="center" align="middle">
+            <Col md={16}>
+              <Text
+                style={{ fontFamily: "Montserrat,sans-serif", color: "white" }}
+              >
+                As a way of giving back to the community, we offer online free
+                courses in software development. Interested people can take
+                online courses for free.
+                <br />
+                We also mentored and encorouged students in primary, secondary
+                and colledge to be part of technology, and fosterd the
+                establishment of STEM in secondary schools.
+              </Text>
+            </Col>
+          </Row>
+          <Row
+            justify="space-around"
+            align="middle"
+            style={{ marginTop: "20px" }}
           >
-            Amazing things about us
-          </Title>
-        </div>
-        <div className="curved">
-          <Title level={5} style={{ textAlign: "center" }}>
-            We have amazing products that we deal in everyday. Some of the
-            things that you will consider us in doing
-          </Title>
+            <Col>
+              <Carousel autoplay style={{ width: "200px" }}>
+                {renderThings}
+              </Carousel>
+            </Col>
+          </Row>
           <br />
-          <Button>LEARN MORE</Button>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path
-              fill="white"
-              fill-opacity="1"
-              d="M0,192L60,176C120,160,240,128,360,144C480,160,600,224,720,213.3C840,203,960,117,1080,101.3C1200,85,1320,139,1380,165.3L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
-            ></path>
-          </svg>
         </div>
       </div>
 
