@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Row, Col, Card, Image, Carousel, Statistic } from "antd";
+import { Typography, Row, Col, Card, Image, Statistic } from "antd";
 import { LikeOutlined } from "@ant-design/icons";
 import unable from "./unable.jpeg";
 import me from "./me.JPG";
@@ -10,6 +10,8 @@ import About from "./components/About";
 import Products from "./components/Products";
 import Services from "./components/Services";
 import Navbar from "./components/Navbar";
+import CommunitySupport from "./components/CommunitySupport";
+import Footer from "./components/Footer";
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
@@ -69,46 +71,6 @@ const items = [
     description: "webcam for sale",
   },
 ];
-
-const services = [
-  {
-    src:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw6hRuknDgxV_648HG4GKqFkHZ8rpRFf15EQ&usqp=CAU",
-    title: "computer repair",
-    description: "laptop, PC",
-  },
-  {
-    src:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTywGiUBW5zH3BC35Suym2U-QF_a4Itt2bpHg&usqp=CAU",
-    title: "computer repair",
-    description: "all devices",
-  },
-  {
-    src:
-      "https://images.tmcnet.com/tmc/misc/articles/image/2018-sep/5733277494-server-rack-data-center-small.jpg",
-    title: "networking",
-    description: "LAN WAN networking",
-  },
-  {
-    src:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaPSfn4V1hOXyvbG01WTqLjQmg-HwEMPiWubDyqqhq7_kyMgYKVTRLezZAfSA6BfL6K68&usqp=CAU",
-    title: "CCTV installation",
-    description: "premises",
-  },
-];
-
-const renderServices = services.map((service) => {
-  return (
-    <Col key={service.title}>
-      <Image
-        src={service.src}
-        title={service.title}
-        alt="dsjfhjskf"
-        style={{ width: "200px" }}
-      />
-    </Col>
-  );
-});
 
 const clients = [
   {
@@ -192,51 +154,11 @@ export default function App() {
 
       <About />
 
-      <Services renderServices={renderServices} />
+      <Services />
 
       <Products renderCarousel={renderCarousel} />
 
-      <div style={{ backgroundColor: "teal", padding: "2rem" }}>
-        <Title
-          level={2}
-          style={{
-            textAlign: "center",
-            color: "#E75480",
-            fontFamily: "Stylish,sans-serif",
-          }}
-        >
-          Community support
-        </Title>
-        <div className="curved" style={{ textAlign: "center" }}>
-          <Row justify="center" align="middle">
-            <Col md={16}>
-              <Text
-                style={{ fontFamily: "Montserrat,sans-serif", color: "white" }}
-              >
-                As a way of giving back to the community, we offer online free
-                courses in software development. Interested people can take
-                online courses for free.
-                <br />
-                We also mentored and encorouged students in primary, secondary
-                and colledge to be part of technology, and fosterd the
-                establishment of STEM in secondary schools.
-              </Text>
-            </Col>
-          </Row>
-          <Row
-            justify="space-around"
-            align="middle"
-            style={{ marginTop: "20px" }}
-          >
-            <Col>
-              <Carousel autoplay style={{ width: "200px" }}>
-                {renderThings}
-              </Carousel>
-            </Col>
-          </Row>
-          <br />
-        </div>
-      </div>
+      <CommunitySupport renderThings={renderThings} />
 
       <Title
         level={2}
@@ -261,48 +183,8 @@ export default function App() {
       <Row justify="space-around" align="middle">
         {renderClients}
       </Row>
-      <div style={{ backgroundColor: "teal" }}>
-        <div className="curved">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path
-              fill="#fff"
-              fill-opacity="1"
-              d="M0,288L48,282.7C96,277,192,267,288,224C384,181,480,107,576,90.7C672,75,768,117,864,133.3C960,149,1056,139,1152,154.7C1248,171,1344,213,1392,234.7L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-            ></path>
-          </svg>
-          <Row justify="space-around" align="middle">
-            <Col>
-              <Title level={4}>Social Media</Title>
-              <Text>
-                facebook <br />
-                twitter
-                <br />
-                instagram <br />
-                youtube
-              </Text>
-            </Col>
-            <Col>
-              <Title level={4}>Products</Title>
-              <Text>
-                PC <br />
-                laptop
-                <br />
-                keyboard
-              </Text>
-            </Col>
-            <Col>
-              <Title level={4}>Address</Title>
-              <Text>
-                Egessa Villa
-                <br />
-                jorammanoah1@gmail.com
-                <br />
-                +25479980846
-              </Text>
-            </Col>
-          </Row>
-        </div>
-      </div>
+
+      <Footer />
     </>
   );
 }
