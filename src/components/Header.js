@@ -21,17 +21,7 @@ export default function Header() {
           >
             Digital Leo Interactive
           </Title>
-          <Title
-            level={4}
-            style={{
-              textAlign: "center",
-              fontFamily: "Montserrat",
-              color: "#007399",
-            }}
-          >
-            digital leo solutions Ltd
-          </Title>
-          <Text style={{ color: "white", fontFamily: "Montserrat" }}>
+          <Text style={{ color: "#007399", fontFamily: "Montserrat" }}>
             An great solution for enterprise-level software products. Create an
             efficient and enjoyable work experience by using our software
             products.

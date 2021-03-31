@@ -160,29 +160,31 @@ export default function App() {
 
       <CommunitySupport renderThings={renderThings} />
 
-      <Title
-        level={2}
-        style={{
-          textAlign: "center",
-          fontFamily: "Stylish,sans-serif",
-          color: "#E75480",
-        }}
-      >
-        Clients
-      </Title>
-      <Row
-        align="middle"
-        justify="space-around"
-        style={{ marginBottom: "1rem" }}
-      >
-        <Col>
-          <Statistic value={1128} prefix={<LikeOutlined />} />
-        </Col>
-      </Row>
+      <div style={{ padding: "2rem" }}>
+        <Title
+          level={2}
+          style={{
+            textAlign: "center",
+            fontFamily: "Stylish,sans-serif",
+            color: "#E75480",
+          }}
+        >
+          Clients
+        </Title>
+        <Row
+          align="middle"
+          justify="space-around"
+          style={{ marginBottom: "1rem" }}
+        >
+          <Col>
+            <Statistic value={1128} prefix={<LikeOutlined />} />
+          </Col>
+        </Row>
 
-      <Row justify="space-around" align="middle">
-        {renderClients}
-      </Row>
+        <Row justify="space-around" align="middle">
+          {renderClients}
+        </Row>
+      </div>
 
       <Footer />
     </>

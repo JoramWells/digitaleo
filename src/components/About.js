@@ -20,11 +20,10 @@ export default function About() {
         <Col md={12}>
           <Text style={{ fontFamily: "Montserrat,sans-serif" }}>
             DigitaLeao Interactive is a Software company that deals in
-            interactive mobile and web app applications. Some of the services
-            and products that offer solutions that we provide include:- We also
-            do CCTV installation and data recovery. We are a main branch of
-            other small companies; VicTech, Sylcate, LukJuds, that deal in
-            design, printer repair, pc repair and t-shirt printing.
+            development of interactive mobile and web app applications. <br />{" "}
+            We also do CCTV installation and data recovery. We are a main branch
+            of other small companies; VicTech, Sylcate, LukJuds, that deal in
+            design, printer repair, pc repair and t-shirt printing respectively.
           </Text>
         </Col>
       </Row>

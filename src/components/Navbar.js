@@ -31,6 +31,9 @@ export default function Navbar() {
               >
                 <Menu.Item style={{ color: "white" }}>Home</Menu.Item>
                 <Menu.Item style={{ color: "white" }}>About us</Menu.Item>
+                <Menu.Item style={{ color: "white" }}>Careers</Menu.Item>
+                <Menu.Item style={{ color: "white" }}>Services</Menu.Item>
+                <Menu.Item style={{ color: "white" }}>Contact us</Menu.Item>
               </Menu>
             </div>
           </div>
